@@ -67,7 +67,7 @@ function makeGrid() {
         let x = 0; // Iterator for the nested loop to create the columns.
         while(x < gridWidth) {
             const td = document.createElement('td');
-            td.setAttribute('id', `col-${x}`);
+            //td.setAttribute('id', `col-${x}`);
             document.getElementById(`row-${i}`).appendChild(td);
             x ++;
         }
@@ -79,9 +79,16 @@ function makeGrid() {
 // Function to go change the CSS Background Color of a target element.
 function colorBackGround(e) {
     const target = e.target;
-    target.style.backgroundColor = getColor();
+    console.log(target.tagName);
+    if(target.tagName === 'TD') {
+        //console.log('TRUE')
+        target.style.backgroundColor = getColor();
+    } else {
+        //console.log('FALSE')
+    }
+
 }
 
 // Added event listener to change background color of cell in grid when
 // the user presses the button on the mouse.
-tableNode.addEventListener('mousedown', colorBackGround);
+tableNode.addEventListener('click', colorBackGround);
