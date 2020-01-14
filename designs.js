@@ -22,9 +22,14 @@ sizePicker.addEventListener('submit', function (e) {
     e.preventDefault();
     gridHeight = document.getElementById('inputHeight').value;
     gridWidth = document.getElementById('inputWidth').value;
-    myFunc();
-    clearGrid();
-    makeGrid();
+    if(gridWidth >= 101 || gridHeight >= 101) {
+        alert('Height and\/or Width Value Too High!')
+    } else {
+        myFunc();
+        clearGrid();
+        makeGrid();
+    }
+
 });
 
 
